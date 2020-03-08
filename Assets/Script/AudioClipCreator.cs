@@ -55,9 +55,4 @@ public class AudioClipCreator : MonoBehaviour
         hauteurBase = 90;
         longueurBase = 50;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }

@@ -5,7 +5,19 @@ using UnityEngine;
 public class ChangementReelDeMusique : MonoBehaviour
 {
     // Liste des pistes audio
-    public List<AudioClip> audioclip;
+    private Object[] AC1;
+    public List<AudioClip> audioClips;
+
+    private void Start()
+    {
+        AC1 = Resources.LoadAll("Audio", typeof(AudioClip));
+        audioClips = new List<AudioClip>();
+        foreach(Object item in AC1)
+        {
+            AudioClip w = (AudioClip)item;
+            audioClips.Add(w);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,8 +33,8 @@ public class ChangementReelDeMusique : MonoBehaviour
         {
             if (nomObjet != null)
             {
-                GameObject go = GameObject.Find(nomObjet);     
-                AudioClip clipChoisi = audioclip[numMusic];
+                GameObject go = GameObject.Find(nomObjet);
+                AudioClip clipChoisi = audioClips[numMusic];
                 // Debug.Log("Clip Choisi : " + clipChoisi.name);
 
                 if (go != null)

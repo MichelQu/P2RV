@@ -19,6 +19,6 @@ public class NomObjet : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(selectedName);
+        // Debug.Log(selectedName);
     }
 }
