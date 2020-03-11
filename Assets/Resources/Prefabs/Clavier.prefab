@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2522125998090072967}
   - component: {fileID: 2522125998090072964}
   - component: {fileID: 2522125998090072963}
+  - component: {fileID: 9125143217856275904}
+  - component: {fileID: 5197990622340861049}
   m_Layer: 0
   m_Name: Clavier
   m_TagString: Object
@@ -200,5 +202,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94b573cf5bd004eebba7ce3e7be5009a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9125143217856275904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522125998090072965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97d1cfbd99014143a9ca74c9a0cdff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5197990622340861049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522125998090072965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235af6a64b061b845baea6869df555ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

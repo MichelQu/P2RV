@@ -5,9 +5,12 @@ using UnityEngine;
 public class Rename : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        this.name = this.GetComponent<AudioSource>().clip.name;
+        if (this.GetComponent<AudioSource>().clip != null) 
+        { 
+            this.name = this.GetComponent<AudioSource>().clip.name;
+        }
     }
-
+    
 }
