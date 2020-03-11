@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - ObjectParent
+  - QRBouton
   layers:
   - Default
   - TransparentFX
