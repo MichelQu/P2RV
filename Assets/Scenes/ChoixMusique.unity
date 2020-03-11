@@ -232,9 +232,8 @@ GameObject:
   - component: {fileID: 469204784}
   - component: {fileID: 469204783}
   - component: {fileID: 469204786}
-  - component: {fileID: 469204788}
-  - component: {fileID: 469204787}
   - component: {fileID: 469204789}
+  - component: {fileID: 469204787}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -328,24 +327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 469204782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3c69290d9484a98a1c0b436b3b1ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: aba0597638659412081023d70e940d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zoneText: {fileID: 1294411228}
   placement: 60
---- !u!114 &469204788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469204782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e120375853f4fa89c49f2374bfc153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioclip: []
 --- !u!114 &469204789
 MonoBehaviour:
   m_ObjectHideFlags: 0

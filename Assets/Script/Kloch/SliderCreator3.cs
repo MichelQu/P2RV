@@ -121,7 +121,7 @@ public class SliderCreator3 : MonoBehaviour
         // En sachant que un bouton prend 30 de haut et est espacé du suivant de 5, on a qu'un bouton prend 35 de haut
         // D'où :
         nbrSliderBouton = ((Screen.height - 80) / 35); // -1;
-        Debug.Log("On peut mettre : " + nbrSliderBouton);
+        // Debug.Log("On peut mettre : " + nbrSliderBouton);
         
     }
 

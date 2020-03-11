@@ -45,21 +45,25 @@ public class Initialisation : MonoBehaviour
 
     private void OnGUI()
     {
-
         //Création d'une box de BackGround
-        GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 100, 300, 200), "Menu de Départ");
+        GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 125, 300, 275), "Menu de Départ");
 
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 55, 250, 50), "Vers la Scène Principale"))
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 75, 250, 50), "Vers la Scène Principale"))
         {
             SceneManager.LoadScene("SceneP");
         }
 
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 15, 250, 50), "Réinitialisation"))
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 5, 250, 50), "Réinitialisation"))
         {
             PlayerPrefs.DeleteKey("name");
             PlayerPrefs.DeleteKey("MusicNum");
             PlayerPrefs.DeleteKey("MusicName");
             Debug.Log("Réinitialisation des PlayerPrefs!");
+        }
+
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 65, 250, 50), "Configuration"))
+        {
+            SceneManager.LoadScene("Configuration");
         }
     }
 }
