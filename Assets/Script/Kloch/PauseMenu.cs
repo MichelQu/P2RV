@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 
         if (isPaused)
         {
-            if (GUI.Button(new Rect(Screen.width - 150, 55, 130, 35), "Continuer"))
+            if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Continuer"))
             {
                 isPaused = false;
             }
@@ -20,13 +20,13 @@ public class PauseMenu : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
-            if (GUI.Button(new Rect(Screen.width - 150, 55, 130, 35), "Pause"))
+            if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Pause"))
             {
                 isPaused = true;
             }
         }
         
-        if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Menu"))
+        if (GUI.Button(new Rect(25, 15, 130, 35), "Menu"))
         {
             SceneManager.LoadScene("Intro");
         }

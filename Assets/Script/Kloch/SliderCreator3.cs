@@ -24,13 +24,14 @@ public class SliderCreator3 : MonoBehaviour
     private PauseMenu pausemenu;
     public List<float> slidervalue;
 
-    // Start is called before the first frame update
     public Slider slide;
     public Canvas canva;
     bool change;
 
-    // Update is called once per frame
 
+    private int nbrSliderBouton;
+
+    // Start is called before the first frame update
     private void Start()
     {
         change = true;
@@ -76,7 +77,7 @@ public class SliderCreator3 : MonoBehaviour
     }
 
 
-
+    // Update is called once per frame
     void Update()
     {
         pausemenu = thePlayer.GetComponent<PauseMenu>();
@@ -116,6 +117,12 @@ public class SliderCreator3 : MonoBehaviour
             }
         }
 
+        // On calcule le nombre de sliders et boutons qu'on peut mettre sur une hauteur.
+        // En sachant que un bouton prend 30 de haut et est espacé du suivant de 5, on a qu'un bouton prend 35 de haut
+        // D'où :
+        nbrSliderBouton = ((Screen.height - 80) / 35); // -1;
+        Debug.Log("On peut mettre : " + nbrSliderBouton);
+        
     }
 
 
@@ -136,17 +143,18 @@ public class SliderCreator3 : MonoBehaviour
     public void CreerBouton(int i)
     {
         // Le placement des Boutons se font par rapport au coin gauche du canvas.
-        if (i < 11)
+        if (i < nbrSliderBouton)
         {
-            GUI.Button(new Rect(25, 20 + 35 * i, 120, 30), audiolist[i].name);
+            GUI.Button(new Rect(25, 80 + 35 * i, 120, 30), audiolist[i].name);
         }
-        if (i < 22 && i > 10)
+        if (i < nbrSliderBouton*2 && i >= nbrSliderBouton)
         {
-            GUI.Button(new Rect(370, 20 + 35 * (i - 11), 120, 30), audiolist[i].name);
+            GUI.Button(new Rect(370, 80 + 35 * (i - nbrSliderBouton), 120, 30), audiolist[i].name);
         }
         else
         {
-            GUI.Button(new Rect(690, 20 + 35 * (i - 22), 120, 30), audiolist[i].name);
+            // À vérifier avec la taille de l'écran final
+            GUI.Button(new Rect(715, 80 + 35 * (i - (nbrSliderBouton*2)), 120, 30), audiolist[i].name);
         }
     }
 
@@ -155,24 +163,18 @@ public class SliderCreator3 : MonoBehaviour
         // Le placement des Sliders se font par rapport au centre du canvas.
         Slider slidi;
 
-        // 220 = 120 + 25 + 100 (moitié de la taille du slider)
-        // Hauteur 35 = 20 + 15 (moitié de la taille du bouton)
-        // Instantiate(slide, new Vector3(245, Screen.height - 35, 0), Quaternion.identity, canva.transform);
-
-        if (i < 11)
+        if (i < nbrSliderBouton)
         {
-            slidi = Instantiate(slide, new Vector3(245, Screen.height - (20 + (35 * i) + 15), 0), Quaternion.identity, canva.transform);
-            // slidi = Instantiate(slide, new Vector3(267, Screen.height + 2 - (45 * (i + 1)), 0), Quaternion.identity, canva.transform);
+            slidi = Instantiate(slide, new Vector3(245, Screen.height - (80 + (35 * i) + 15), 0), Quaternion.identity, canva.transform);
         }
-        else if (i < 22 && i > 10)
+        else if (i < nbrSliderBouton * 2 && i >= nbrSliderBouton)
         {
-            slidi = Instantiate(slide, new Vector3(590, Screen.height - (20 + (35 * (i - 11)) + 15), 0), Quaternion.identity, canva.transform);
-            //slidi = Instantiate(slide, new Vector3(587, Screen.height + 2 - (45 * (i - 10)), 0), Quaternion.identity, canva.transform);
+            slidi = Instantiate(slide, new Vector3(590, Screen.height - (80 + (35 * (i - nbrSliderBouton)) + 15), 0), Quaternion.identity, canva.transform);
         }
         else
-        { 
-            slidi = Instantiate(slide, new Vector3(590, Screen.height - (20 + (35 * (i - 22)) + 15), 0), Quaternion.identity, canva.transform);
-            //slidi = Instantiate(slide, new Vector3(907, Screen.height + 2 - (45 * (i - 21)), 0), Quaternion.identity, canva.transform);
+        {
+            // A vérifier avec la taille de l'écran final
+            slidi = Instantiate(slide, new Vector3(925, Screen.height - (80 + (35 * (i - nbrSliderBouton*2)) + 15), 0), Quaternion.identity, canva.transform);
         }
         return slidi;
     }
@@ -180,7 +182,7 @@ public class SliderCreator3 : MonoBehaviour
 
     public void Mute()
     {
-        if (GUI.Button(new Rect(Screen.width - 130, 105, 110, 35), "Mute all"))
+        if (GUI.Button(new Rect(Screen.width/2 - 130, 25, 110, 35), "Mute all"))
         {
             for (int i = 0; i < audiolist.Count; i++)
             {
@@ -195,7 +197,7 @@ public class SliderCreator3 : MonoBehaviour
 
     public void Demute()
     {
-        if (GUI.Button(new Rect(Screen.width - 130, 145, 110, 35), "Demute all"))
+        if (GUI.Button(new Rect(Screen.width/2 + 20, 25, 110, 35), "Demute all"))
         {
             for (int i = 0; i < audiolist.Count; i++)
             {
