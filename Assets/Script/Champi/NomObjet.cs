@@ -12,10 +12,12 @@ public class NomObjet : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // TODO à modifier pour qu'il s'adapte aux changement de taille de l'écran.
-        // Il faudra trouver les informations des zoneText
+        zoneText.transform.position = new Vector3(Screen.width/2, Screen.height - placement, 0);
 
-        zoneText.transform.position = new Vector3(Screen.width / 2, (Screen.height / 2 + placement), 0);
+        // TODO régler les tops et bottoms de la zone de Texte pour garder une box de taille constante
+        // Et éviter une disparition de la box lorsque qu'on diminue trop la taille de l'écran.
+
+        // zoneText.rectTransform.rect.
         selectedName = PlayerPrefs.GetString("name");
         zoneText.text = "Objet sélectionné : " + selectedName;
     }

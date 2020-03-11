@@ -53,9 +53,10 @@ public class SliderCreator3 : MonoBehaviour
             for (int i = 0; i < audiolist.Count; i++)
             {
                 CreerBouton(i);
+                // Slider slidi = CreerSlider(i);
                 if (change)
                 {
-                    Slider slidi= CreerSlider(i);
+                    Slider slidi = CreerSlider(i);
                     slidi.value = slidervalue[i];
                     slidi.gameObject.name = i.ToString();
                 }
@@ -134,18 +135,18 @@ public class SliderCreator3 : MonoBehaviour
 
     public void CreerBouton(int i)
     {
-        // Le placement des Sliders se font par rapport au coin gauche du canvas.
+        // Le placement des Boutons se font par rapport au coin gauche du canvas.
         if (i < 11)
         {
-            GUI.Button(new Rect(50, 20 + 45 * i, 120, 40), audiolist[i].name);
+            GUI.Button(new Rect(25, 20 + 35 * i, 120, 30), audiolist[i].name);
         }
         if (i < 22 && i > 10)
         {
-            GUI.Button(new Rect(370, 20 + 45 * (i - 11), 120, 40), audiolist[i].name);
+            GUI.Button(new Rect(370, 20 + 35 * (i - 11), 120, 30), audiolist[i].name);
         }
         else
         {
-            GUI.Button(new Rect(690, 20 + 45 * (i - 22), 120, 40), audiolist[i].name);
+            GUI.Button(new Rect(690, 20 + 35 * (i - 22), 120, 30), audiolist[i].name);
         }
     }
 
@@ -153,17 +154,25 @@ public class SliderCreator3 : MonoBehaviour
     {
         // Le placement des Sliders se font par rapport au centre du canvas.
         Slider slidi;
+
+        // 220 = 120 + 25 + 100 (moitié de la taille du slider)
+        // Hauteur 35 = 20 + 15 (moitié de la taille du bouton)
+        // Instantiate(slide, new Vector3(245, Screen.height - 35, 0), Quaternion.identity, canva.transform);
+
         if (i < 11)
         {
-            slidi = Instantiate(slide, new Vector3(267, Screen.height + 2 - (45 * (i + 1)), 0), Quaternion.identity, canva.transform);
+            slidi = Instantiate(slide, new Vector3(245, Screen.height - (20 + (35 * i) + 15), 0), Quaternion.identity, canva.transform);
+            // slidi = Instantiate(slide, new Vector3(267, Screen.height + 2 - (45 * (i + 1)), 0), Quaternion.identity, canva.transform);
         }
         else if (i < 22 && i > 10)
         {
-            slidi = Instantiate(slide, new Vector3(587, Screen.height + 2 - (45 * (i - 10)), 0), Quaternion.identity, canva.transform);
+            slidi = Instantiate(slide, new Vector3(590, Screen.height - (20 + (35 * (i - 11)) + 15), 0), Quaternion.identity, canva.transform);
+            //slidi = Instantiate(slide, new Vector3(587, Screen.height + 2 - (45 * (i - 10)), 0), Quaternion.identity, canva.transform);
         }
         else
-        {
-            slidi = Instantiate(slide, new Vector3(907, Screen.height + 2 - (45 * (i - 21)), 0), Quaternion.identity, canva.transform);
+        { 
+            slidi = Instantiate(slide, new Vector3(590, Screen.height - (20 + (35 * (i - 22)) + 15), 0), Quaternion.identity, canva.transform);
+            //slidi = Instantiate(slide, new Vector3(907, Screen.height + 2 - (45 * (i - 21)), 0), Quaternion.identity, canva.transform);
         }
         return slidi;
     }

@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneText: {fileID: 1282596950}
-  placement: 120
+  placement: 90
 --- !u!1 &1664769624
 GameObject:
   m_ObjectHideFlags: 0
