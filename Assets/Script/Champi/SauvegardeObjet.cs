@@ -31,5 +31,22 @@ public class SauvegardeObjet : MonoBehaviour
                 rend.enabled = true;
             }
         }
+
+        if(SceneManager.GetActiveScene().name != "SceneP" && SceneManager.GetActiveScene().name != "MenuChoix" && SceneManager.GetActiveScene().name != "ChoixMusique")
+        {
+            foreach(GameObject item in go1)
+            {
+                AudioSource audioS = item.GetComponent<AudioSource>();
+                audioS.volume = 0;
+            }
+        }
+        else
+        {
+            foreach (GameObject item in go1)
+            {
+                AudioSource audioS = item.GetComponent<AudioSource>();
+                audioS.volume = 1;
+            }
+        }
     }
 }

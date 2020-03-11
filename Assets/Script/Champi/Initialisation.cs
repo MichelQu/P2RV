@@ -58,10 +58,11 @@ public class Initialisation : MonoBehaviour
             PlayerPrefs.DeleteKey("name");
             PlayerPrefs.DeleteKey("MusicNum");
             PlayerPrefs.DeleteKey("MusicName");
+            PlayerPrefs.DeleteKey("QRName");
             Debug.Log("Réinitialisation des PlayerPrefs!");
         }
 
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 65, 250, 50), "Configuration"))
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 65, 250, 50), "Configuration des QR Codes"))
         {
             SceneManager.LoadScene("Configuration");
         }
