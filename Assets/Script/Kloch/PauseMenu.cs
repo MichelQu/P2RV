@@ -6,12 +6,13 @@ public class PauseMenu : MonoBehaviour
 {
     public bool isPaused = false;
     public Texture tex;
+
     private void OnGUI()
     {
 
         if (isPaused)
         {
-            if (GUI.Button(new Rect(Screen.width - 100, 40, 80, 40), "Continuer"))
+            if (GUI.Button(new Rect(Screen.width - 150, 55, 130, 35), "Continuer"))
             {
                 isPaused = false;
             }
@@ -19,15 +20,15 @@ public class PauseMenu : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
-            if (GUI.Button(new Rect(Screen.width - 100, 40, 80, 40), "Pause"))
+            if (GUI.Button(new Rect(Screen.width - 150, 55, 130, 35), "Pause"))
             {
                 isPaused = true;
             }
         }
         
-        if (GUI.Button(new Rect(Screen.width - 100, 80, 60, 40), "Menu"))
+        if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Menu"))
         {
-            SceneManager.LoadScene("LoadingScene");
+            SceneManager.LoadScene("Intro");
         }
     }
 }

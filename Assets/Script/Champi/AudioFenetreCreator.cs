@@ -83,8 +83,8 @@ public class AudioFenetreCreator : MonoBehaviour
                 {
                     PlayerPrefs.SetString("MusicName", item.name);
                     PlayerPrefs.SetInt("MusicNum", i-1);
-                    Debug.Log(PlayerPrefs.GetString("MusicName"));
-                    Debug.Log(PlayerPrefs.GetString("MusicNum"));
+                    // Debug.Log(PlayerPrefs.GetString("MusicName"));
+                    // Debug.Log(PlayerPrefs.GetString("MusicNum"));
                     SceneManager.LoadScene("SceneP");
                 }
 

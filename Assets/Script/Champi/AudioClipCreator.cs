@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Script Obsolète
+// Remplacé par le script AudioFenetreCreator
+
 public class AudioClipCreator : MonoBehaviour
 {
 
@@ -10,12 +13,6 @@ public class AudioClipCreator : MonoBehaviour
     // public GameObject parent;
     private int hauteurBase = 90;
     private int longueurBase = 50;
-
-    // TODO
-    // Système de fenêtre à rajouter avec page suivante ou page antérieur
-    // À faire avec une variable qui donne le numéro de la page.
-    // Page suivante apparait dès que le nombre limite de chansons et rentrer
-    // Page antérieur dès qu'on est à la page 2 ou plus
 
     void OnGUI()
     {

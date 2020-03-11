@@ -61,6 +61,7 @@ public class SliderCreator3 : MonoBehaviour
                 }
             }
             Mute();
+            Demute();
             change = false;   //pour qu'on instancie pas 1000 clones, on considère ici qu'on a une banque de sons qui ne bouge pas, ie qu'on a pris tous les sons dès le départ
         }
         if (!pausemenu.isPaused)
@@ -117,10 +118,10 @@ public class SliderCreator3 : MonoBehaviour
     }
 
 
-    public void GetList()   // la fonction qui va permettre de choper
+    public void GetList()   // la fonction qui va permettre de choper les Audio qui se jouent 
     {
         AudioSource[] getAudio;
-        getAudio = Object.FindObjectsOfType(typeof(AudioSource)) as AudioSource[];  //on prend toutes les audiosource
+        getAudio = Object.FindObjectsOfType(typeof(AudioSource)) as AudioSource[];  // on prend toutes les audiosource
         audiolist = new List<AudioSource>();
         for (int i = 0; i < getAudio.Length; i++)
         {
@@ -133,6 +134,7 @@ public class SliderCreator3 : MonoBehaviour
 
     public void CreerBouton(int i)
     {
+        // Le placement des Sliders se font par rapport au coin gauche du canvas.
         if (i < 11)
         {
             GUI.Button(new Rect(50, 20 + 45 * i, 120, 40), audiolist[i].name);
@@ -149,6 +151,7 @@ public class SliderCreator3 : MonoBehaviour
 
     public Slider CreerSlider(int i)
     {
+        // Le placement des Sliders se font par rapport au centre du canvas.
         Slider slidi;
         if (i < 11)
         {
@@ -168,7 +171,7 @@ public class SliderCreator3 : MonoBehaviour
 
     public void Mute()
     {
-        if (GUI.Button(new Rect(Screen.width - 100, 120, 80, 40), "Mute all"))
+        if (GUI.Button(new Rect(Screen.width - 130, 105, 110, 35), "Mute all"))
         {
             for (int i = 0; i < audiolist.Count; i++)
             {
@@ -176,6 +179,21 @@ public class SliderCreator3 : MonoBehaviour
                 {
                     Slider slidi = GameObject.Find(i.ToString()).GetComponent<Slider>();
                     slidi.value = 0;
+                }
+            }
+        }
+    }
+
+    public void Demute()
+    {
+        if (GUI.Button(new Rect(Screen.width - 130, 145, 110, 35), "Demute all"))
+        {
+            for (int i = 0; i < audiolist.Count; i++)
+            {
+                if (GameObject.Find(i.ToString()) != null)
+                {
+                    Slider slidi = GameObject.Find(i.ToString()).GetComponent<Slider>();
+                    slidi.value = 1;
                 }
             }
         }

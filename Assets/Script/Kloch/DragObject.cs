@@ -16,6 +16,7 @@ public class DragObject : MonoBehaviour
         pausemenu = thePlayer.GetComponent<PauseMenu>();
         
     }
+
     void Update()
     {
 
@@ -24,25 +25,26 @@ public class DragObject : MonoBehaviour
     }
 
 
-        void OnMouseDown()
-        {
-        if (!pausemenu.isPaused) 
+    void OnMouseDown()
+    {
+        if ( !(pausemenu.isPaused) ) 
         {
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
-        }
+    }
     
-        void OnMouseDrag()
+    void OnMouseDrag()
+    {
+        if (!pausemenu.isPaused)
         {
-            if (!pausemenu.isPaused)
-            {
-                Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-                Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorScreenPoint) + offset;
-                transform.position = cursorPosition;
-            }
+            Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorScreenPoint) + offset;
+            transform.position = cursorPosition;
         }
     }
+
+}
 
 

@@ -40,6 +40,9 @@ public class Initialisation : MonoBehaviour
     //}
 
 
+    // TODO rajouter un script pour lors de la réinitialisation
+    // on puisse remettre les musiques de base du GameObject
+
     private void OnGUI()
     {
 
