@@ -16,7 +16,7 @@ public class AudioFenetreCreator : MonoBehaviour
 
     private int nbrBouton;
 
-    public int numPage = 2;
+    public int numPage = 1;
 
     private void Start()
     {

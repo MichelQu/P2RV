@@ -15,7 +15,7 @@ public class SceneConfiguration3 : MonoBehaviour
 
     private int nbrBouton;
 
-    public int numPage = 0;
+    public int numPage = 1;
 
     private void Start()
     {
