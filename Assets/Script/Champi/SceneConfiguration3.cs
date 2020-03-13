@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AudioFenetreCreator : MonoBehaviour
+public class SceneConfiguration3 : MonoBehaviour
 {
-
     public Object[] audioclip;
     private int nbrWidth;
     private int resteWidth;
@@ -21,36 +20,26 @@ public class AudioFenetreCreator : MonoBehaviour
     private void Start()
     {
         audioclip = Resources.LoadAll("Audio", typeof(AudioClip));
-        //Debug.Log("Longueur : " + audioclip.Length);
-        //foreach (AudioClip item in audioclip)
-        //{
-        //    Debug.Log("Nom : " + item.name);
-        //}
-
-        //Debug.Log("Largeur : " + Screen.width);
-        //Debug.Log("Hauteur : " + Screen.height);
-
-        //Debug.Log("Nbr de rect en long : " + Screen.width / 180);
-        //Debug.Log("Nbr de rect en hauteur : " + (Screen.height-90) / 40);
-        //Debug.Log("Reste : " + Screen.width % 180);
     }
 
     private void Update()
     {
         nbrWidth = Screen.width / 180; // Le nombre de bouton en long
         resteWidth = (Screen.width % 180); // Le nombre de pixel restant en long
-        // Debug.Log("resteWifth : " + resteWidth);
-        longueurBase = resteWidth / (nbrWidth+1);
-        ecartLong = (resteWidth / (nbrWidth+1) ) + 180; // Ecart entre 2 boutons sur la longueur
-        // Debug.Log("ecartLong : " + ecartLong);
+        longueurBase = resteWidth / (nbrWidth + 1);
+        ecartLong = (resteWidth / (nbrWidth + 1)) + 180; // Ecart entre 2 boutons sur la longueur
         nbrHeight = ((Screen.height - 90) / 40) - 1; // Le nombre de bouton en hauteur
-
         // Le nombre de bouton sur une page est de :
         nbrBouton = nbrHeight * nbrWidth;
     }
 
     private void OnGUI()
     {
+        if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Choix de l'Objet"))
+        {
+            SceneManager.LoadScene("Configuration2");
+        }
+
         int i = 0;
 
         // Gère les pages
@@ -62,7 +51,7 @@ public class AudioFenetreCreator : MonoBehaviour
             }
         }
 
-        if (audioclip.Length - numPage*nbrBouton > 0)
+        if (audioclip.Length - numPage * nbrBouton > 0)
         {
             if (GUI.Button(new Rect(Screen.width - 175, Screen.height - 45, 150, 30), "Page suivante"))
             {
@@ -76,16 +65,15 @@ public class AudioFenetreCreator : MonoBehaviour
             i += 1;
 
             // On sélectionne seulement les audiclips qui doivent s'afficher sur la page.
-            if (i <= nbrBouton * numPage && i > nbrBouton*(numPage-1))
+            if (i <= nbrBouton * numPage && i > nbrBouton * (numPage - 1))
             {
                 // Si on appuie sur une des musiques.
                 if (GUI.Button(new Rect(longueurBase, hauteurBase, 180, 30), item.name))
                 {
-                    PlayerPrefs.SetString("MusicName", item.name);
-                    PlayerPrefs.SetInt("MusicNum", i-1);
-                    // Debug.Log(PlayerPrefs.GetString("MusicName"));
-                    // Debug.Log(PlayerPrefs.GetString("MusicNum"));
-                    SceneManager.LoadScene("SceneP");
+                    // Récupérer le gameObject attaché au QRCode
+                    // Changer la musique avec celui choisi
+                    // Retour à la scène Configuration
+                    SceneManager.LoadScene("Configuration");
                 }
 
                 // On place un bouton en dessous

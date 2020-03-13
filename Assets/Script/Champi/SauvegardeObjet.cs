@@ -21,6 +21,11 @@ public class SauvegardeObjet : MonoBehaviour
             {
                 Renderer rend = item.GetComponent<Renderer>();
                 rend.enabled = false;
+                if (SceneManager.GetActiveScene().name != "MenuChoix" && SceneManager.GetActiveScene().name != "ChoixMusique")
+                {
+                    AudioSource audioS = item.GetComponent<AudioSource>();
+                    audioS.volume = 0;
+                }
             }
         }
         else
@@ -29,6 +34,9 @@ public class SauvegardeObjet : MonoBehaviour
             {
                 Renderer rend = item.GetComponent<Renderer>();
                 rend.enabled = true;
+                // On remet le son
+                AudioSource audioS = item.GetComponent<AudioSource>();
+                audioS.volume = 1;
             }
         }
     }
