@@ -13,7 +13,6 @@ public class SauvegardeObjet : MonoBehaviour
     private void Update()
     {
         GameObject[] go1 = GameObject.FindGameObjectsWithTag("Object");
-        // Debug.Log("Il y a : " + go1.Length + " objets");
 
         if (SceneManager.GetActiveScene().name != "SceneP")
         {
