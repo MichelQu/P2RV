@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script gère la transition des GameObject essentiels entre les différentes scènes.
+
 public class SauvegardeObjet : MonoBehaviour
 {
     private void Awake()

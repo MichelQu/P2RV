@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script récupère les gameObjects dans le dossier Prefabs.
+// Et il les affiche de façon automatique sur l'écran dans la scène Configuration2.
+
 public class SceneConfiguration2 : MonoBehaviour
 {
     public Object[] listPrefabs;
@@ -41,6 +44,8 @@ public class SceneConfiguration2 : MonoBehaviour
             {
                 if (GUI.Button(new Rect(longueurBase, hauteurBase, taillecase, 45), item.name))
                 {
+                    // TODO : reste à le configurer.
+
                     // On récupère le GameObject QRCode lié au nom stocké dans PlayerPrefs (QRName)
                     // GameObject go = GameObject.Find(PlayerPrefs.GetString("QRName"));
                     // Transform pos = go.transform;
@@ -48,6 +53,9 @@ public class SceneConfiguration2 : MonoBehaviour
                     // GameObject instance = Instantiate(Resources.Load(item.name, typeof(Object)), pos) as GameObject;
                     // instance.transform.parent = go.transform;
                     // Il reste plus qu'à lui associer un son
+
+                    PlayerPrefs.SetString("ConfigGO", item.name);
+                    // Debug.Log(PlayerPrefs.GetString("ConfigGO"));
                     SceneManager.LoadScene("Configuration3");
                 }
                 hauteurBase += 50; 

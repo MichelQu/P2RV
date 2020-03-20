@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce Script crée l'interface de la scène Introduction qui permet de
+// rediriger vers les autres interfaces du jeu.
+
 public class Initialisation : MonoBehaviour
 {
     // private Object[] obj;
@@ -59,6 +62,7 @@ public class Initialisation : MonoBehaviour
             PlayerPrefs.DeleteKey("MusicNum");
             PlayerPrefs.DeleteKey("MusicName");
             PlayerPrefs.DeleteKey("QRName");
+            PlayerPrefs.DeleteKey("ConfigGO");
             Debug.Log("Réinitialisation des PlayerPrefs!");
         }
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Ce script place le nom du GameObject sélectionné dans une zone de Texte.
+// Dans les scènes suivantes à la scène Principale.
+
 public class NomObjet2 : MonoBehaviour
 {
     public Text zoneText;

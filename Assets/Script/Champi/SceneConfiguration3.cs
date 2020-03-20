@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script associe l'audio au GameObject dans le menu Configuration des QR Code.
+
 public class SceneConfiguration3 : MonoBehaviour
 {
     public Object[] audioclip;

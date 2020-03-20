@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script crée un bouton qui permet de retourner vers la scène Principale.
+
 public class SelectionMusique : MonoBehaviour
 {
     void OnGUI()

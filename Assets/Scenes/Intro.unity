@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clavier
       objectReference: {fileID: 0}
+    - target: {fileID: 5197990622340861049, guid: 3edd5eed6691a464e90d770de07c3f35,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3edd5eed6691a464e90d770de07c3f35, type: 3}
 --- !u!4 &17126774 stripped
@@ -317,6 +322,11 @@ PrefabInstance:
     - target: {fileID: 5108394633393401510, guid: 9094ca0350cb2427b98e8f420b17647e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535394930359989254, guid: 9094ca0350cb2427b98e8f420b17647e,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -535,6 +545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 195600341}
     m_Modifications:
+    - target: {fileID: 471418263620995491, guid: 933a0ddceb2854264ab7124df17468c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8490440837302832066, guid: 933a0ddceb2854264ab7124df17468c3,
         type: 3}
       propertyPath: m_Name

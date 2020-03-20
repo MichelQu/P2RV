@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script permet de réaliser le changement de scène pour réaliser un changement de musique.
+// Le script s'active seulement si le menu Pause est désactivé.
+
 public class ChangementScene : MonoBehaviour
 {
     private GameObject selected;

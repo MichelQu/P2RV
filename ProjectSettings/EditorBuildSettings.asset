@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Configuration3.unity
     guid: 8b3f0fe175ed841a49cee4885de75259
+  - enabled: 1
+    path: Assets/Scenes/MusicProp.unity
+    guid: f33a6d84319ed40acadc66945c140add
   m_configObjects: {}

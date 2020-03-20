@@ -462,10 +462,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1530779707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3c69290d9484a98a1c0b436b3b1ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: aba0597638659412081023d70e940d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zoneText: {fileID: 1282596950}
+  placement: 80
 --- !u!1 &1664769624
 GameObject:
   m_ObjectHideFlags: 0

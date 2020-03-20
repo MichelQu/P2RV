@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Ce script permet de réaliser le changement de musique sur un gameObject
+// si l'on a souhaité le changement de son.
+
 public class ChangementReelDeMusique : MonoBehaviour
 {
     // Liste des pistes audio

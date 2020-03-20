@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Ce script récupère les audios dans le dossier Audio.
+// Et il les affiche de façon automatique sur l'écran.
+
 public class AudioFenetreCreator : MonoBehaviour
 {
 
@@ -16,7 +19,7 @@ public class AudioFenetreCreator : MonoBehaviour
 
     private int nbrBouton;
 
-    public int numPage = 1;
+    private int numPage = 1;
 
     private void Start()
     {
