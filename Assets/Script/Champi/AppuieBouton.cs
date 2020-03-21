@@ -11,10 +11,10 @@ public class AppuieBouton : MonoBehaviour
 {
     public Text zoneTexte;
 
+    // Fonction qui s'active lors de l'appui d'un bouton
     public void configuration()
     {
         PlayerPrefs.SetString("QRName", zoneTexte.text);
-        // Debug.Log(zoneTexte.text);
         SceneManager.LoadScene("Configuration2");
     }
 }

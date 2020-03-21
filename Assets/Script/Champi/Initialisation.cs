@@ -8,7 +8,42 @@ using UnityEngine.SceneManagement;
 
 public class Initialisation : MonoBehaviour
 {
+    // On crée les différentes interfaces et les différentes fonctions des interfaces.
+    private void OnGUI()
+    {
+        // Création d'une box de BackGround
+        GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 125, 300, 275), "Menu de Départ");
+
+        // Création du bouton vers la scène principale
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 75, 250, 50), "Vers la Scène Principale"))
+        {
+            SceneManager.LoadScene("SceneP");
+        }
+
+        // Création du bouton de Réinitialisation et de ces fonctions
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 5, 250, 50), "Réinitialisation"))
+        {
+            PlayerPrefs.DeleteKey("name");
+            PlayerPrefs.DeleteKey("MusicNum");
+            PlayerPrefs.DeleteKey("MusicName");
+            PlayerPrefs.DeleteKey("QRName");
+            PlayerPrefs.DeleteKey("ConfigGO");
+            Debug.Log("Réinitialisation des PlayerPrefs!");
+        }
+
+        // Création du bouton vers la scène configuration
+        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 65, 250, 50), "Configuration des QR Codes"))
+        {
+            SceneManager.LoadScene("Configuration");
+        }
+    }
+
+    #region Indication d'amélioration du code
     // private Object[] obj;
+
+    // TODO rajouter un script pour lors de la réinitialisation, on puisse remettre les musiques de base du GameObject.
+    // Actuellement, le code ce-dessous ne charge pas pour le bouton Réinitialisation. TODO pour améliorer celui qui est
+    // actuellement en place.
 
     //private void OnGUI()
     //{
@@ -41,34 +76,5 @@ public class Initialisation : MonoBehaviour
     //        PlayerPrefs.DeleteKey("MusicName");
     //    }
     //}
-
-
-    // TODO rajouter un script pour lors de la réinitialisation
-    // on puisse remettre les musiques de base du GameObject
-
-    private void OnGUI()
-    {
-        //Création d'une box de BackGround
-        GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 125, 300, 275), "Menu de Départ");
-
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 75, 250, 50), "Vers la Scène Principale"))
-        {
-            SceneManager.LoadScene("SceneP");
-        }
-
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 5, 250, 50), "Réinitialisation"))
-        {
-            PlayerPrefs.DeleteKey("name");
-            PlayerPrefs.DeleteKey("MusicNum");
-            PlayerPrefs.DeleteKey("MusicName");
-            PlayerPrefs.DeleteKey("QRName");
-            PlayerPrefs.DeleteKey("ConfigGO");
-            Debug.Log("Réinitialisation des PlayerPrefs!");
-        }
-
-        if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 + 65, 250, 50), "Configuration des QR Codes"))
-        {
-            SceneManager.LoadScene("Configuration");
-        }
-    }
+    #endregion
 }

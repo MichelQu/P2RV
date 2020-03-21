@@ -24,28 +24,14 @@ public class AudioFenetreCreator : MonoBehaviour
     private void Start()
     {
         audioclip = Resources.LoadAll("Audio", typeof(AudioClip));
-        //Debug.Log("Longueur : " + audioclip.Length);
-        //foreach (AudioClip item in audioclip)
-        //{
-        //    Debug.Log("Nom : " + item.name);
-        //}
-
-        //Debug.Log("Largeur : " + Screen.width);
-        //Debug.Log("Hauteur : " + Screen.height);
-
-        //Debug.Log("Nbr de rect en long : " + Screen.width / 180);
-        //Debug.Log("Nbr de rect en hauteur : " + (Screen.height-90) / 40);
-        //Debug.Log("Reste : " + Screen.width % 180);
     }
 
     private void Update()
     {
         nbrWidth = Screen.width / 180; // Le nombre de bouton en long
         resteWidth = (Screen.width % 180); // Le nombre de pixel restant en long
-        // Debug.Log("resteWifth : " + resteWidth);
         longueurBase = resteWidth / (nbrWidth+1);
         ecartLong = (resteWidth / (nbrWidth+1) ) + 180; // Ecart entre 2 boutons sur la longueur
-        // Debug.Log("ecartLong : " + ecartLong);
         nbrHeight = ((Screen.height - 90) / 40) - 1; // Le nombre de bouton en hauteur
 
         // Le nombre de bouton sur une page est de :
@@ -54,7 +40,11 @@ public class AudioFenetreCreator : MonoBehaviour
 
     private void OnGUI()
     {
-        int i = 0;
+        // On ajoute un bouton qui permet de revenir vers la scène principale
+        if (GUI.Button(new Rect(Screen.width - 190, 10, 180, 30), "Retour à la Scène Principale"))
+        {
+            SceneManager.LoadScene("SceneP");
+        }
 
         // Gère les pages
         if (numPage > 1)
@@ -73,10 +63,10 @@ public class AudioFenetreCreator : MonoBehaviour
             }
         }
 
+        int i = 0; // On crée une variable qui compte le nombre d'AudioClip
         foreach (AudioClip item in audioclip)
         {
-            // On incrémente la variable i
-            i += 1;
+            i += 1; // On incrémente la variable i
 
             // On sélectionne seulement les audiclips qui doivent s'afficher sur la page.
             if (i <= nbrBouton * numPage && i > nbrBouton*(numPage-1))
@@ -84,10 +74,9 @@ public class AudioFenetreCreator : MonoBehaviour
                 // Si on appuie sur une des musiques.
                 if (GUI.Button(new Rect(longueurBase, hauteurBase, 180, 30), item.name))
                 {
+                    // On configure les clés 
                     PlayerPrefs.SetString("MusicName", item.name);
                     PlayerPrefs.SetInt("MusicNum", i-1);
-                    // Debug.Log(PlayerPrefs.GetString("MusicName"));
-                    // Debug.Log(PlayerPrefs.GetString("MusicNum"));
                     SceneManager.LoadScene("SceneP");
                 }
 

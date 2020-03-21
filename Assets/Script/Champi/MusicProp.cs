@@ -11,13 +11,14 @@ using TMPro;
 
 public class MusicProp : MonoBehaviour
 {
+    #region Les Variables
     private GameObject objet; // Le gameobject visé
     private AudioSource src;  // L'AudioSource de ce gameobject
-    private bool isLooping;
+    public bool isLooping;
     private string choix; // Si looping ou non
 
     // Intervalle en secondes entre 2 chansons.
-    private int intervalle = 0;
+    public int intervalle;
 
     // Liste des boutons et textes
     public Button cinqPlus;
@@ -30,6 +31,7 @@ public class MusicProp : MonoBehaviour
     public GameObject cinq;
     public GameObject quinze;
     public GameObject minute;
+    #endregion
 
     void Start()
     {
@@ -37,15 +39,73 @@ public class MusicProp : MonoBehaviour
         // C'est sur ce gameObject qu'on va appliquer les modifications.
         objet = GameObject.Find(PlayerPrefs.GetString("name"));
         src = objet.GetComponent<AudioSource>();
+
+        // On récupère la valeur d'intervalle entre les chansons.
+        intervalle = objet.GetComponent<ChangementScene>().intervalle;
+
+        // On récupère la composente Looping de l'AudioSource et on définit les propriétés qui vont avec.
+        isLooping = src.loop;
+        src.loop = false; // On retire cette composante car on va seulement utiliser isLooping à partir de maintenant.
+        mode(isLooping);
     }
 
-    void Update()
+    private void OnGUI()
     {
-        isLooping = src.loop;
-        // Ce if permettra l'affichage de la propriété de la musique sur l'écran
-        if (isLooping)  { choix = "en boucle";}
-        else            { choix = "une fois"; }
+        // Affichage des textes suivants.
+        if( GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height/2 - 200, 250, 40), "Choix des propriétés du son")) { }
+        if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 140, 300, 40), "Actuellement, la musique est jouée " + choix)) { }
 
+        // Bouton pour revenir au Menu Choix.
+        if (GUI.Button(new Rect(Screen.width - 190, 10, 180, 30), "Retour au Menu Choix"))
+        {
+            SceneManager.LoadScene("MenuChoix");
+        }
+
+        // Bouton pour valider.
+        if (GUI.Button(new Rect(Screen.width - 190, Screen.height - 40, 180, 30), "Validation du choix"))
+        {
+            SceneManager.LoadScene("SceneP");
+        }
+
+        if (isLooping)
+        {
+            if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2, 250, 40), "Intervalle entre chaque loop : " + intervalle + " s")) { }
+        }
+    }
+
+    public void oneTime()
+    {
+        isLooping = false;
+        // src.loop = isLooping;
+        mode(isLooping);
+    }
+
+    public void looping()
+    {
+        isLooping = true;
+        // src.loop = isLooping;
+        mode(isLooping);
+    }
+
+    public void ajout(int i)
+    {
+        intervalle += i;
+    }
+
+    public void retrait(int i)
+    {
+        if (intervalle - i >= 0)
+        {
+            intervalle -= i;
+        }
+        else
+        {
+            intervalle = 0;
+        }
+    }
+
+    public void mode (bool isLooping)
+    {
         if (!isLooping)
         {
             cinq.SetActive(false);
@@ -70,50 +130,9 @@ public class MusicProp : MonoBehaviour
             minutePlus.interactable = true;
             minuteMoins.interactable = true;
         }
-    }
 
-    private void OnGUI()
-    {
-        // Affichage des textes suivants.
-        if( GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height/2 - 200, 250, 40), "Choix des propriétés du son")) { }
-        if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 140, 300, 40), "Actuellement, la musique est jouée " + choix)) { }
-
-        // Bouton pour revenir au Menu Choix.
-        if (GUI.Button(new Rect(Screen.width - 190, 10, 180, 30), "Retour au Menu Choix"))
-        {
-            SceneManager.LoadScene("MenuChoix");
-        }
-
-        if (isLooping)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2, 250, 40), "Intervalle entre chaque loop : " + intervalle + " s")) { }
-        }
-    }
-
-    public void oneTime()
-    {
-        src.loop = false;
-    }
-
-    public void looping()
-    {
-        src.loop = true;
-    }
-
-    public void ajout(int i)
-    {
-        intervalle += i;
-    }
-
-    public void retrait(int i)
-    {
-        if (intervalle - i >= 0)
-        {
-            intervalle -= i;
-        }
-        else
-        {
-            intervalle = 0;
-        }
+        // Ce if permettra l'affichage de la propriété de la musique sur l'écran
+        if (isLooping) {choix = "en boucle";}
+        else {choix = "une fois";}
     }
 }

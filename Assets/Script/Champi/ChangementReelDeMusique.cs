@@ -13,6 +13,7 @@ public class ChangementReelDeMusique : MonoBehaviour
 
     private void Start()
     {
+        // On récupère tous les audioclip dans la base de données et on les ajoute dans la liste d'Audioclip
         AC1 = Resources.LoadAll("Audio", typeof(AudioClip));
         audioClips = new List<AudioClip>();
         foreach(Object item in AC1)
@@ -25,13 +26,12 @@ public class ChangementReelDeMusique : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // On récupère les différentes informations entre les scènes.
         string nomObjet = PlayerPrefs.GetString("name");
-        // Debug.Log("nom de l'Objet : " + nomObjet);
         string nomSon = PlayerPrefs.GetString("MusicName");
-        // Debug.Log("Nom du son : " + nomSon);
         int numMusic = PlayerPrefs.GetInt("MusicNum");
-        // Debug.Log("Numéro de la musique : " + numMusic);
 
+        // Si les conditions sont permises, on remplace l'audioclip sur le GameObject
         if (nomSon != null)
         {
             if (nomObjet != null)

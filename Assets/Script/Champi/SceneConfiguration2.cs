@@ -55,7 +55,6 @@ public class SceneConfiguration2 : MonoBehaviour
                     // Il reste plus qu'à lui associer un son
 
                     PlayerPrefs.SetString("ConfigGO", item.name);
-                    // Debug.Log(PlayerPrefs.GetString("ConfigGO"));
                     SceneManager.LoadScene("Configuration3");
                 }
                 hauteurBase += 50; 

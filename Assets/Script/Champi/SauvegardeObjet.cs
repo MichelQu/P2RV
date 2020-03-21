@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Ce script gère la transition des GameObject essentiels entre les différentes scènes.
+// Il empêche qu'il soit détruit
 
 public class SauvegardeObjet : MonoBehaviour
 {
     private void Awake()
     {
+        // On empêche qu'il soit détruit lors d'une génération de scène
         DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
     {
+        // Surtout toutes les autres que la scène principale on retire le rederer des GameObject
+        // et on désactive leur volume sauf sur les scènes MenuChoix et ChoixMusique 
         GameObject[] go1 = GameObject.FindGameObjectsWithTag("Object");
 
         if (SceneManager.GetActiveScene().name != "SceneP")
@@ -33,6 +37,7 @@ public class SauvegardeObjet : MonoBehaviour
         {
             foreach (GameObject item in go1)
             {
+                // On active leur rederer
                 Renderer rend = item.GetComponent<Renderer>();
                 rend.enabled = true;
                 // On remet le son

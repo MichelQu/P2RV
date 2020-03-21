@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class DoubleObjet : MonoBehaviour
 {
-    // Update is called once per frame
     void Update()
     {
         GameObject[] listGameObject =  GameObject.FindGameObjectsWithTag("ObjectParent");

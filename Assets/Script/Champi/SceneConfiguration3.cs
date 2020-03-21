@@ -72,6 +72,7 @@ public class SceneConfiguration3 : MonoBehaviour
                 // Si on appuie sur une des musiques.
                 if (GUI.Button(new Rect(longueurBase, hauteurBase, 180, 30), item.name))
                 {
+                    // TODO :
                     // Récupérer le gameObject attaché au QRCode
                     // Changer la musique avec celui choisi
                     // Retour à la scène Configuration
