@@ -14,6 +14,7 @@ public class DoubleObjet : MonoBehaviour
         int i = 0;
         foreach(GameObject item in listGameObject)
         {
+            // Si l'objet existe plus d'une fois alors on supprime toutes les copies supllémentaires.
             if (i > 0)
             {
                 Destroy(listGameObject[i]);

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneConfiguration3 : MonoBehaviour
 {
+    // Les différentes variables
     public Object[] audioclip;
     private int nbrWidth;
     private int resteWidth;
@@ -21,22 +22,26 @@ public class SceneConfiguration3 : MonoBehaviour
 
     private void Start()
     {
+        // On charge tous les audios dans le dosier Ressources.
         audioclip = Resources.LoadAll("Audio", typeof(AudioClip));
     }
 
     private void Update()
     {
+        // On calcule les variables qui permettront de bien placés les boutons.
         nbrWidth = Screen.width / 180; // Le nombre de bouton en long
         resteWidth = (Screen.width % 180); // Le nombre de pixel restant en long
         longueurBase = resteWidth / (nbrWidth + 1);
         ecartLong = (resteWidth / (nbrWidth + 1)) + 180; // Ecart entre 2 boutons sur la longueur
         nbrHeight = ((Screen.height - 90) / 40) - 1; // Le nombre de bouton en hauteur
+
         // Le nombre de bouton sur une page est de :
         nbrBouton = nbrHeight * nbrWidth;
     }
 
     private void OnGUI()
     {
+        // On crée un bouton qui permet de revenir à la scène Configuration2.
         if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Choix de l'Objet"))
         {
             SceneManager.LoadScene("Configuration2");
@@ -61,6 +66,7 @@ public class SceneConfiguration3 : MonoBehaviour
             }
         }
 
+        // Pour chaque objet dans la audioclip, on crée un bouton.
         foreach (AudioClip item in audioclip)
         {
             // On incrémente la variable i

@@ -23,11 +23,13 @@ public class AudioFenetreCreator : MonoBehaviour
 
     private void Start()
     {
+        // On charge tous les audios dans le dosier Ressources.
         audioclip = Resources.LoadAll("Audio", typeof(AudioClip));
     }
 
     private void Update()
     {
+        // On calcule les variables qui permettront de bien placés les boutons.
         nbrWidth = Screen.width / 180; // Le nombre de bouton en long
         resteWidth = (Screen.width % 180); // Le nombre de pixel restant en long
         longueurBase = resteWidth / (nbrWidth+1);
@@ -64,6 +66,8 @@ public class AudioFenetreCreator : MonoBehaviour
         }
 
         int i = 0; // On crée une variable qui compte le nombre d'AudioClip
+
+        // Pour chaque objet dans la audioclip, on crée un bouton.
         foreach (AudioClip item in audioclip)
         {
             i += 1; // On incrémente la variable i
@@ -74,7 +78,7 @@ public class AudioFenetreCreator : MonoBehaviour
                 // Si on appuie sur une des musiques.
                 if (GUI.Button(new Rect(longueurBase, hauteurBase, 180, 30), item.name))
                 {
-                    // On configure les clés 
+                    // On configure les variables et les clés
                     PlayerPrefs.SetString("MusicName", item.name);
                     PlayerPrefs.SetInt("MusicNum", i-1);
                     SceneManager.LoadScene("SceneP");

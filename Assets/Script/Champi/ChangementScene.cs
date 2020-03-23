@@ -51,9 +51,7 @@ public class ChangementScene : MonoBehaviour
         // On s'assure que le clip ne joue plus.
         src.Stop();
         // On attend l'intervalle voulu
-        // print("Debut de Coroutine");
         yield return new WaitForSeconds(temps);
-        // print("Fin de Coroutine");
         // On joue rejoue la musique
         src.PlayOneShot(musique, 1.0f);
     }
@@ -73,6 +71,7 @@ public class ChangementScene : MonoBehaviour
         // On récupère les informations du GameObject et on bascule vers la scène MenuChoix.
         if (!isPaused)
         {
+            // On configure la variables et la clé "name"
             PlayerPrefs.SetString("name", gameObject.name);
             SceneManager.LoadScene("MenuChoix");
         }

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Ce script permet de réaliser le changement de musique sur un gameObject
-// si l'on a souhaité le changement de son.
+// si l'on a souhaité le changement de son si l'on se trouve dans la scène principale.
 
 public class ChangementReelDeMusique : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class ChangementReelDeMusique : MonoBehaviour
         // On récupère tous les audioclip dans la base de données et on les ajoute dans la liste d'Audioclip
         AC1 = Resources.LoadAll("Audio", typeof(AudioClip));
         audioClips = new List<AudioClip>();
-        foreach(Object item in AC1)
+        foreach (Object item in AC1)
         {
             AudioClip w = (AudioClip)item;
             audioClips.Add(w);
@@ -36,14 +37,14 @@ public class ChangementReelDeMusique : MonoBehaviour
         {
             if (nomObjet != null)
             {
+                // On récupère l'audio et son gameObject
                 GameObject go = GameObject.Find(nomObjet);
                 AudioClip clipChoisi = audioClips[numMusic];
-                // Debug.Log("Clip Choisi : " + clipChoisi.name);
 
                 if (go != null)
                 {
+                    // On change l'audio avec l'audio choisi par l'opérateur sur le gameObject. 
                     AudioSource audio1 = go.GetComponent<AudioSource>();
-
                     if (clipChoisi != audio1.clip)
                     {
                         audio1.Stop();

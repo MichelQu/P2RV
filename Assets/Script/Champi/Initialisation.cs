@@ -23,6 +23,7 @@ public class Initialisation : MonoBehaviour
         // Création du bouton de Réinitialisation et de ces fonctions
         if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 5, 250, 50), "Réinitialisation"))
         {
+            // On supprime les variables et les clés créées dans les différents scripts.
             PlayerPrefs.DeleteKey("name");
             PlayerPrefs.DeleteKey("MusicNum");
             PlayerPrefs.DeleteKey("MusicName");

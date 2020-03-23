@@ -46,7 +46,7 @@ public class MusicProp : MonoBehaviour
         // On récupère la composente Looping de l'AudioSource et on définit les propriétés qui vont avec.
         isLooping = src.loop;
         src.loop = false; // On retire cette composante car on va seulement utiliser isLooping à partir de maintenant.
-        mode(isLooping);
+        mode(isLooping); // On passe dans le mode associé
     }
 
     private void OnGUI()
@@ -67,6 +67,7 @@ public class MusicProp : MonoBehaviour
             SceneManager.LoadScene("SceneP");
         }
 
+        // Si on est en mode Looping alors ce bouton apparait.
         if (isLooping)
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2, 250, 40), "Intervalle entre chaque loop : " + intervalle + " s")) { }
@@ -75,25 +76,28 @@ public class MusicProp : MonoBehaviour
 
     public void oneTime()
     {
+        // Configuration des variables si la musique est jouée une fois.
         isLooping = false;
-        // src.loop = isLooping;
         mode(isLooping);
     }
 
     public void looping()
     {
+        // Configuration des variables si la musique est jouée en boucle.
         isLooping = true;
-        // src.loop = isLooping;
         mode(isLooping);
     }
 
     public void ajout(int i)
     {
+        // On incrémente la variable 'intervalle'
         intervalle += i;
     }
 
     public void retrait(int i)
     {
+        // On décrémente la variable 'intervalle'
+        // La variable 'intervalle' est capée en soustraction à 0.
         if (intervalle - i >= 0)
         {
             intervalle -= i;
@@ -106,6 +110,9 @@ public class MusicProp : MonoBehaviour
 
     public void mode (bool isLooping)
     {
+        // Si le musique est jouée une seule fois alors on désactive tous les boutons et les zones de texte associés.
+        // Sinon si la musique doit être jouée en boucle alors on active les boutons et zones de texte nécessaires à cette fonctionnalité.
+ 
         if (!isLooping)
         {
             cinq.SetActive(false);
@@ -131,7 +138,7 @@ public class MusicProp : MonoBehaviour
             minuteMoins.interactable = true;
         }
 
-        // Ce if permettra l'affichage de la propriété de la musique sur l'écran
+        // Ce test if permettra l'affichage de la propriété de la musique sur l'écran
         if (isLooping) {choix = "en boucle";}
         else {choix = "une fois";}
     }

@@ -14,7 +14,7 @@ public class AppuieBouton : MonoBehaviour
     // Fonction qui s'active lors de l'appui d'un bouton
     public void configuration()
     {
-        PlayerPrefs.SetString("QRName", zoneTexte.text);
+        PlayerPrefs.SetString("QRName", zoneTexte.text); // Variable qui pourra être récupérée dans les autres scènes avec le code "QRName".
         SceneManager.LoadScene("Configuration2");
     }
 }

@@ -17,7 +17,7 @@ public class SauvegardeObjet : MonoBehaviour
     private void Update()
     {
         // Surtout toutes les autres que la scène principale on retire le rederer des GameObject
-        // et on désactive leur volume sauf sur les scènes MenuChoix et ChoixMusique 
+        // et on désactive leur volume sauf sur les scènes MenuChoix, ChoixMusique et MusicProp. 
         GameObject[] go1 = GameObject.FindGameObjectsWithTag("Object");
 
         if (SceneManager.GetActiveScene().name != "SceneP")
@@ -26,7 +26,7 @@ public class SauvegardeObjet : MonoBehaviour
             {
                 Renderer rend = item.GetComponent<Renderer>();
                 rend.enabled = false;
-                if (SceneManager.GetActiveScene().name != "MenuChoix" && SceneManager.GetActiveScene().name != "ChoixMusique")
+                if (SceneManager.GetActiveScene().name != "MenuChoix" && SceneManager.GetActiveScene().name != "ChoixMusique" && SceneManager.GetActiveScene().name != "MusicProp")
                 {
                     AudioSource audioS = item.GetComponent<AudioSource>();
                     audioS.volume = 0;

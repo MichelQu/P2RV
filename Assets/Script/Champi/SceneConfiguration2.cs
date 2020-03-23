@@ -16,11 +16,13 @@ public class SceneConfiguration2 : MonoBehaviour
 
     public void Start()
     {
+        // On charge tous les prefabs dans le dosier Ressources.
         listPrefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     }
 
     public void Update()
     {
+        // On calcule les variables qui permettront de bien placés les boutons.
         nbrCase = ((Screen.height - 70) / 50);
         nbrLigne = (Screen.width) / taillecase;
         espace = ((Screen.width) % taillecase) / (nbrLigne + 1);
@@ -30,6 +32,7 @@ public class SceneConfiguration2 : MonoBehaviour
 
     private void OnGUI()
     {
+        // On crée un bouton qui permet de revenir à la scène Configuration.
         if (GUI.Button(new Rect(Screen.width - 150, 15, 130, 35), "Choix QR Code"))
         {
             SceneManager.LoadScene("Configuration");
@@ -37,6 +40,7 @@ public class SceneConfiguration2 : MonoBehaviour
 
         int i = 0;
 
+        // Pour chaque objet dans la listPrefab, on crée un bouton.
         foreach (Object item in listPrefabs)
         {
             i += 1;
