@@ -642,11 +642,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  tex: {fileID: 0}
   audiolist: []
   slidervalue: []
-  slide: {fileID: 0}
-  canva: {fileID: 0}
+  slide: {fileID: 1107878573}
+  canva: {fileID: 1421240597}
   nbaudio: 0
   nbslider: 0
 --- !u!114 &963194233

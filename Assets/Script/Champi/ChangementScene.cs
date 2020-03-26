@@ -64,7 +64,7 @@ public class ChangementScene : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "SceneP")
         {
             GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
-            isPaused = Cam.GetComponent<PauseMenu>().isPaused;
+            isPaused = Cam.GetComponent<PauseMenu2>().isPaused;
         }
 
         // Si les conditions sont réunies, lorsqu'on réalise un clic droit
