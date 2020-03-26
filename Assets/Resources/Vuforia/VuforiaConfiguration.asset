@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2067402452, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
+  m_Name: VuforiaConfiguration
+  m_EditorClassIdentifier: 
+  vuforia:
+    vuforiaLicenseKey: ASk1kmL/////AAABme+vCDiHHEQAiVYSOoyq8UJuAFIV858UGFQZFq+6ut7H206YSZbvuT3TkeijN4vCT98Vy3KdeF9HEeqWsTTwn6Q+kmbtzNEusJ2Ux5v00jan58Et3RXrzenN76GM14gRZii7tdyXxN+XbsouICQnYg7FrbZV9x+uuiqwSuh7ZIoGfc4WV95ofpgbhZT8yR1Xz30qY+bNkUaZYDjKPVJSxB0s9tEagmvP6tUdP7CTMfUU4n9Iyv3CVJYxCdHbb4ZnWLQWr7w6Ty2jMIzVp8tbfpeDDtSSNnfw44GEMV7QKNoP5k+OSCJtWI3BnKjW4wPgcOYy/ejlbGcFyFVcwFlYkfj8eH/t5Rwboz7vu+MORa3+
+    ufoLicenseKey: QVlMcUtKWC8vLy8vQUFBQUtGU3dFM0hRSmtCQXZIZHZIZHEyak1Ob3JLaG9RY0NWTlJXR2kzQm42YU9vQTZsdEdWZm1BbE0vdWgvcysyV2hjdnRkN1FOdkJ3U2E1VmsyVEZjdTkwL2IvM3dNVTdhLzN5bVhwbEFmZVplb0JSMFBMcnFGK0t5MlNidHgySGZLTjl2TE40VEJCd0FIOERFMzJpdGR6NWRpWkRHNk9abG9SRXNWVFhkaEtZYTJZRHdQYWF5aXhwV3pxaTBYMzVhNnEvWlB5blVWNjE5aEo1VkZvVU9mSHdzYmErdDVBQjRzNkFheUxNRXV3Vlp5dmMvMVdwWU80dythVnlaZXgzV3ROdDZpdmRpNkR3YldwY3J6aUYvaHRDbHZoWExRYk52cG93S3ZZVThPMDZDOWNqcWpBdVVLOXBzRkFwdXM5TEdlblU2NStrRHlZZ2NKNGdjTURkVGVLWmR4Q1NDTHJld0JtcytYTjh5ei9XaGM=
+    delayedInitialization: 0
+    cameraDeviceModeSetting: -1
+    maxSimultaneousImageTargets: 5
+    maxSimultaneousObjectTargets: 5
+    useDelayedLoadingObjectTargets: 0
+    modelTargetRecoWhileExtendedTracked: 1
+    version: 8.5.9
+    eulaAcceptedVersions: '{"Values":["8.5"]}'
+  database:
+    disableModelExtraction: 0
+  videoBackground:
+    numDivisions: 2
+    videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
+      type: 3}
+    videoBackgroundEnabled: 1
+  deviceTracker:
+    autoInitTracker: 0
+    autoStartTracker: 0
+    arcoreRequirement: 0
+    autoImportArcore: 0
+  smartTerrain:
+    autoInitTracker: 0
+    autoStartTracker: 0
+  webcam:
+    deviceNameSetInEditor: Logitech QuickCam Pro 9000
+    turnOffWebCam: 0
+    renderTextureLayer: 30
