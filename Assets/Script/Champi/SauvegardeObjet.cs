@@ -40,9 +40,7 @@ public class SauvegardeObjet : MonoBehaviour
                 // On active leur rederer
                 Renderer rend = item.GetComponent<Renderer>();
                 rend.enabled = true;
-                // On remet le son
-                AudioSource audioS = item.GetComponent<AudioSource>();
-                audioS.volume = 1;
+    
             }
         }
     }
